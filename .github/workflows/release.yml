@@ -49,4 +49,4 @@ jobs:
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
           VERSION: ${{ needs.bump.outputs.VERSION }}
-        run: gh release create $VERSION artifact --generate-notes
+        run: gh release create $VERSION artifact/*.tgz --generate-notes
