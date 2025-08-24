@@ -19,11 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup git config
-      env:
-        user_email: ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
       run: |
-        git config user.name ${{ github.actor }}
-        git config user.email "$user_email"
+        git config user.name ${{ github.event.sender.name }}
+        git config user.email "${{ github.event.sender.email }}
     - uses: actions/setup-node@v4
       with:
         node-version: 22.x
